@@ -1,0 +1,22 @@
+<?php
+return [
+  'default-connection' => => 'concrete',
+  'connections' => [
+    'concrete' => [
+      'driver' => 'c5_pdo_mysql',
+      'server' => 'scrappy.hosts.net.nz',
+      'database' => 'volwell_testwebsite',
+      'username' => 'volwell_596c41a4',
+      'password' => 'Q(XWRg8dmWaDGSY3Rl(71^)7',
+      'charset' => 'utf8',
+    ],
+    'jobsearch' => [
+      'driver' => 'c5_pdo_mysql',
+      'server' => 'scrappy.hosts.net.nz',
+      'database' => 'volwell_voluntee',
+      'username' => 'volwell_vwgod',
+      'password' => 'Mj^py5!7q',
+      'charset' => 'utf8',
+    ],
+  ],
+];

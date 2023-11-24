@@ -1,0 +1,203 @@
+@import "presets/defaults.less";
+@import ~"@{preset-fonts-file}";
+
+body {
+	font-family: 'Poppins', sans-serif;
+  font-size: @body-type-font-size;
+  margin: 0px !important;
+  padding: 0px;
+}
+
+@media (max-width: 1200px) {
+  legend {
+    font-size: calc(1.275rem + 0.3vw);
+  }
+  h1,
+  .h1 {
+    font-size: calc(1.375rem + 1.5vw);
+  }
+  h2,
+  .h2 {
+    font-size: calc(1.325rem + 0.9vw);
+  }
+  h3,
+  .h3 {
+    font-size: calc(1.3rem + 0.6vw);
+  }
+  h4,
+  .h4 {
+    font-size: calc(1.275rem + 0.3vw);
+  }
+  .display-1 {
+    font-size: calc(1.725rem + 5.7vw);
+  }
+  .display-2 {
+    font-size: calc(1.675rem + 5.1vw);
+  }
+  .display-3 {
+    font-size: calc(1.575rem + 3.9vw);
+  }
+  .display-4 {
+    font-size: calc(1.475rem + 2.7vw);
+  }
+  .close {
+    font-size: calc(1.275rem + 0.3vw);
+  }
+}
+
+h4 {
+  color: @form-header-color;
+  font-weight: @header-type-font-weight;
+}
+h3 {
+  color: @form-header-color;
+  font-weight: @header-type-font-weight;
+}
+h2 {
+  color: @form-header-color;
+  font-weight: @header-type-font-weight;
+}
+li {
+  font-size: @body-type-font-size;
+}
+
+/* Header configuration */
+.vw-hdr-bar .img{
+	background: no-repeat;
+	background-size: cover;
+}
+.vw-hdr-bar{
+	background-postion: left;
+	width: 100%;
+	background-color: @primary-header-color;
+}
+
+/*Menu configuration  see youtube Transparant Header Navigation bar usin HTML & CSS*/
+.vw-hdr-bar ul{
+	text-align: center;
+}
+.vw-hdr-bar ul li{
+	list-style: none;
+	display: inline-block;
+}
+.vw-hdr-bar ul li a{
+	disply: block;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: @primary-header-color;
+	font-size: 20px;
+	font-family: @header-type-font-family;
+	font-weight: 600;
+	padding: 25px;
+	transition: all ease 0.5s;
+}
+
+.vw-hdr-bar ul li a:hover{
+	background-color: #211b44385;
+}
+
+// Breakpoints
+// ------------------------- Source: http://blog.scur.pl/2012/06/variable-media-queries-less-css/
+@highdensity: ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+              ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
+              ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
+              ~"only screen and (min-device-pixel-ratio: 1.5)";
+@mobile:      ~"only screen and (max-width: 529px)";
+@tablet:      ~"only screen and (min-width: 530px) and (max-width: 949px)";
+@desktop:     ~"only screen and (min-width: 950px) and (max-width: 1128px)";
+@desktop-xl:  ~"only screen and (min-width: 1129px)";
+
+	/**************** banner part css start ****************/
+.banner_part{
+    height: 300px;
+    display: flex;
+    align-items: center;
+    position: relative;
+		background-color: @primary-header-color;
+    // background-image: url(../images/banner_overlay.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+    &:after{
+        position: absolute;
+        right: 0;
+        top: 0;
+        content: "";
+        width: 100%;
+        height: 100%;
+				//@extend %overlay_bg  SASS concept that is not supported in LESS
+        z-index: -1;
+    }
+    @media @mobile {
+        height: 100px;
+    }
+    @media @tablet {
+        height: 200px;
+    }
+    @media @desktop {
+        height: 300px;
+    }
+	}
+
+    .banner_text{
+        display: table;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 99;
+        margin-top: 60px;
+        @media @tablet {
+            text-align: center;
+            margin-top: 10px;
+        }
+			}
+        .banner_text_iner{
+						text-align:center;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        h4{
+            color: white;
+            margin-bottom: 0;
+            @media @tablet {
+                margin-bottom: 10px;
+            }
+            @media @mobile {
+                margin-bottom: 10px;
+            }
+        }
+				h2{
+            margin: 0px 0px 20px;
+            letter-spacing: 3px;
+            color: white;
+            @media @tablet {
+                margin-bottom: 15px;
+                line-height: 35px;
+            }
+            @media @mobile {
+                margin-bottom: 0;
+                line-height: 1.4;
+            }
+        }
+
+        p{
+            color: rgb(244, 244, 244);
+            line-height: 2.25;
+            margin-top: 46px;
+            @media @tablet {
+                margin-top: 0;
+                line-height: 25px;
+            }
+            @media @mobile {
+                margin-top: 15px;
+            }
+        }
+
+        .banner_btn{
+            display: inline-block;
+            margin-top: 40px;
+            padding: 10px 30px;
+            @media @tablet {
+                margin-top: 20px;
+            }
+        }

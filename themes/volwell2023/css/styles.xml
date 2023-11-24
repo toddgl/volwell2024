@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<styles version="1.0">
+	<set name="Full page">
+		<style name="Primary Header Color" variable="primary-header" type="color" />
+	</set>
+	<set name="Header">
+		<style name="Header" variable="header" type="type" />
+	</set>
+	<set name="Body">
+		<style name="Body" variable="body" type="type" />
+		<style name="Primary Body Color" variable="primary-body" type="color" />
+	</set>
+</styles>

@@ -4,7 +4,7 @@ return [
     'default-connection' => 'concrete',
     'connections' => [
         'concrete' => [
-            'driver' => 'c5_pdo_mysql',
+            'driver' => 'concrete_pdo_mysql',
             'server' => 'ruru',
             'database' => 'concrete5',
             'username' => 'c5admin',
@@ -13,7 +13,7 @@ return [
             'collation' => 'utf8mb4_unicode_ci',
         ],
         'jobsearch' => [
-          'driver' => 'c5_pdo_mysql',
+          'driver' => 'concrete_pdo_mysql',
           'server' => 'ruru',
           'database' => 'voluntee_VOLWELL2',
           'username' => 'c5admin',

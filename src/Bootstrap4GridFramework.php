@@ -7,7 +7,7 @@ use Concrete\Core\Page\Theme\GridFramework\GridFramework;
 
 defined('C5_EXECUTE') or die(_("Access Denied."));
 
-class Bootstrap4GridFramework extends GridFramework
+class Bootstrap5GridFramework extends GridFramework
 {
 
     public function supportsNesting()
@@ -17,7 +17,7 @@ class Bootstrap4GridFramework extends GridFramework
 
     public function getPageThemeGridFrameworkName()
     {
-        return t('Bootstrap4');
+        return t('Bootstrap5');
     }
 
     public function getPageThemeGridFrameworkRowStartHTML()

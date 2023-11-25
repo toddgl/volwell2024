@@ -1,5 +1,5 @@
 <?php
-namespace Application\Theme\Volwellington2020;
+namespace Application\Theme\Volwell2024;
 
 use Concrete\Core\Asset\Asset;
 use Concrete\Core\Asset\AssetList;
@@ -10,16 +10,16 @@ defined('C5_EXECUTE') or die(_("Access Denied."));
 
 class PageTheme extends Theme implements ThemeProviderInterface
 {
-   protected $pThemeGridFrameworkHandle = 'bootstrap4';
+   protected $pThemeGridFrameworkHandle = 'bootstrap5';
 
    public function getThemeName()
    {
-     return t('Volwellington2020');
+     return t('Volwell2024');
    }
 
    public function getThemeDescription()
    {
-     return t('A Volunteer Wellington Theme using Bootstrap4');
+     return t('A Volunteer Wellington Theme using Bootstrap5');
    }
 
    public function getThemeAreaLayoutPresets()

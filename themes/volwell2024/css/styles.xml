@@ -10,4 +10,7 @@
 		<style name="Body" variable="body" type="type" />
 		<style name="Primary Body Color" variable="primary-body" type="color" />
 	</set>
+	<set name="Footer">
+		<style name="Primary Footer Color" variable="primary-footer" type="color" />
+	</set>
 </styles>

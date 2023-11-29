@@ -35,7 +35,7 @@ defined('C5_EXECUTE') or die('Access Denied.')
 						</button>
 						<div class="collapse navbar-collapse main-menu-item" id="navbarNav">
               <?php View::getInstance()->requireAsset('javascript', 'jquery');
-
+                $nav = Loader::helper('navigation');
                 $navItems = $controller->getNavItems();
 
                 foreach ($navItems as $ni) {
@@ -83,6 +83,7 @@ defined('C5_EXECUTE') or die('Access Denied.')
                 }
 
                 echo '</ul>'; //closes the top-level menu
+                ?>
 						</div>
 					</nav>
 				</div>

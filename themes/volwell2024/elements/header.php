@@ -12,14 +12,14 @@ defined('C5_EXECUTE') or die('Access Denied.')
 		<!--[if lte IE 8]>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 		<![endif]-->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="<?php echo $view->getStylesheet('main.less')?>" >
 		<?php Loader::element('header_required');?>
   </head>
   <body class="main-ctnr">
 	<div class="<?php echo $c->getPageWrapperClass()?>">
 	<?php
-		$as = new GlobalArea('Header Search');
+		$as = new GlobalArea('Header Logo');
 		$blocks = $as->getTotalBlocksInArea();
 		$displayThirdColumn = $blocks > 0 || $c->isEditMode();
 	?>
@@ -34,137 +34,58 @@ defined('C5_EXECUTE') or die('Access Denied.')
 							<span class="navbar-toggler-icon"></span>
 						</button>
 						<div class="collapse navbar-collapse main-menu-item" id="navbarNav">
-							<ul class="navbar-nav ml-auto">
-							<?php
-								$c = Page::getCurrentPage();
-								$currentPagePath = $c->getCollectionPath();
-								// Cache results of getResults() to improve page load time performance
-								$cache = Core::make('cache/expensive');
-								$cacheItem = $cache->getItem('header_navigation_pages');
-								if ($cacheItem ->isMiss())
-								{
-									$cacheItem->lock();
-									$home = Page::getByID($c->getHomePageID());
-									$list = new PageList();
-									$list->filterByParentID($home->getCollectionID());
-									// $list->ignorePermissions();
-									$list->sortByDisplayOrder();
-									$results = $list->getResults();
+              <?php View::getInstance()->requireAsset('javascript', 'jquery');
 
-									$cacheItem->set($results);
-									$cacheItem->expiresAfter(7200);
-									$cache->save($cacheItem);
+                $navItems = $controller->getNavItems();
 
-								} else {
-									$results = $cacheItem->get();
-								}
+                foreach ($navItems as $ni) {
+                  $classes = array();
+                  if ($ni->isCurrent) {
+                  //class for the page currently being viewed
+                    $classes[] = 'nav-selected';
+                  }
+                  if ($ni->inPath) {
+                    //class for parent items of the page currently being viewed
+                    $classes[] = 'nav-path-selected';
+                  }
+                  if ($ni->hasSubmenu) {
+                  //class for items that have dropdown sub-menus
+                    $classes[] = 'dropdown';
+                  }
+                  //Put all classes together into one space-separated string
+                  $ni->classes = implode(" ", $classes);
+                 }
 
+                //*** Step 2 of 2: Output menu HTML ***/
 
-								$p = Page::getCurrentPage();
-								if(!$p->isError() && $p->getCollectionID() == HOME_CID)
-								{
-									//It is the home page
-									$active = true;
-								} else { //other page
-									$active = false;
-								}
+                echo '<ul class="nav navbar-nav navbar-right">'; //opens the top-level menu
 
-								?>
-								<!--::include Home page link in Nav::-->
-								<li class="nav-item <?php if ($active) { ?>active<?php } ?>">
-										<a class="nav-link" href="<?=URL::to('/')?>">Home</a>
-								</li>
-								<?php
-								foreach($results as $page)
-									{
-										$active = false;
-										if (strpos($page->getCollectionPath(), $currentPagePath) === 0)
-										{
-											$active = true;
-										}
-										?>
-										<li class= "nav-item <?php if ($active) { ?>active<?php } ?>">
-											<a class="nav-link" href="<?=$page->getCollectionLink() ?>"> <?=$page->getCollectionName() ?></a>
-										</li>
-									<?php } ?>
-							</ul>
+                foreach ($navItems as $ni) {
+
+                  echo '<li class="' . $ni->classes . '">'; //opens a nav item
+
+                  if ($ni->isEnabled) {
+                    $ni->hasSubmenu;
+                  }
+
+                  if ($ni->hasSubmenu) {
+                     echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">' . $ni->name . '</a>';
+                  } else {
+                      echo '<a href="' . $ni->url . '" target="' . $ni->target . '" class="' . $ni->classes . '"><span class="navwrap"><span class="navimg"><i class="material-icons">' . $ni->attrClass . '</i></span><span class="navtit">' . $ni->name . '</span><span class="navtxt">' . $beschrijving . '</span></span></a>';
+                  }
+
+                  if ($ni->hasSubmenu) {
+                    echo '<ul class="dropdown-menu">'; //opens a dropdown sub-menu
+                  } else {
+                    echo '</li>'; //closes a nav item
+                     echo str_repeat('</ul></li>', $ni->subDepth); //closes dropdown sub-menu(s) and their top-level nav item(s)
+                  }
+                }
+
+                echo '</ul>'; //closes the top-level menu
 						</div>
 					</nav>
 				</div>
-			</div>
-			 <!--::menu section end::-->
-
-		<!--::banner section start::-->
-   	<!---<section class="banner_part d-flex flex-grow"> -->
-		<section class="wrap">
-			<div class="container banner_image">
-
-					<!-- Lead in page Image -->
-					<?php
-						$areaHdrImage = new Area('Image');
-						$areaHdrImage->display($c);
-					?>
-
-						<!-- <div class="container banner_nav"> -->
-							<!-- Section navigation buttons -->
-							<div class="navcontainer justify-content-center">
-								<div class="banner_text">
-									<!-- Lead in page Title, Welcome msg and section navigation buttons -->
-									<?php
-										$areaHdrBanner = new Area('Banner');
-										$areaHdrBanner->display($c);
-									?>
-                </div>
-
-								<ul class = "banner_nav">
-
-									<?php
-									$nh= Loader::helper('navigation');
-									$c = Page::getCurrentPage();
-									$ctitle = $c->getCollectionName();
-									$currentPagePath = $c->getCollectionPath();
-									$plist = new PageList();
-									$plist->filterByParentID($c->getCollectionID($oneLevelOnly = TRUE));
-                  $plist->sortByDisplayOrder();
-                  $subPages = $plist->get(0);
-									$pages = $plist->getResults();
-									?>
-
-									<!--::include Parent in Navigation buttons::-->
-									<!-- <div class="banner_nav_list_item active">-->
-									<div class="element active">
-										<a href="<?php echo $nh->getLinkToCollection($c)?>"><?php echo $ctitle?></a>
-									</div>
-								  <?php
- 									foreach ($pages as $page) {
- 								 		$title = $page->getCollectionName();
- 								 		$is_active_page = $page->getCollectionID() == $c->getCollectionID(); ?>
-			 							<div class="element <?php echo $is_active_page ? ' active' : '';  ?>"><a href="<?php echo $nh->getLinkToCollection($page)?>"><?php echo $title?></a>
-                    </div>
-                    <?php
-                    if (count($page->getChildren()) > 0) { 
-                    ?>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle<?= $page->isActive() ? " active" : ""; ?>" data-concrete-toggle="dropdown" target="<?=$controller->getPageItemNavTarget($page)?>" href="<?php echo $page->getUrl(); ?>">
-                          <?=$page->getName()?>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <?php foreach ($page->getChildren() as $dropdownChild) { ?>
-                              <li><a class="dropdown-item<?= $dropdownChild->isActive() ? " active" : ""; ?>" target="<?=$controller->getPageItemNavTarget($dropdownChild)?>" href="<?=$dropdownChild->getUrl()?>"><?=$dropdownChild->getName()?></a></li>
-                                  <?php } ?>
-                        </ul>
-                      </li>
-                      <?php } else { ?>
-                          <li class="nav-item"><a class="nav-link<?= $page->isActive() ? " active" : ""; ?>" target="<?=$thisTarget ?>" href="<?=$thisLink?>"><?=$page->getName()?></a></li>
-                            <?php } ?>
-                        <?php } ?> 
-									<?php } ?>
-								 </ul>
-							</div>
-	          </div>
       </div>
-
-    </section>
-   	<!--::banner section end::-->
-
+    </div>
   </header>

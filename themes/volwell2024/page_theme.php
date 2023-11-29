@@ -52,3 +52,4 @@ class PageTheme extends Theme implements ThemeProviderInterface
 
    }
 }
+?>

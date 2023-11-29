@@ -114,8 +114,9 @@ defined('C5_EXECUTE') or die('Access Denied.')
 										$areaHdrBanner = new Area('Banner');
 										$areaHdrBanner->display($c);
 									?>
+                </div>
 
-								<div class = "banner_nav"
+								<ul class = "banner_nav">
 
 									<?php
 									$nh= Loader::helper('navigation');
@@ -124,7 +125,8 @@ defined('C5_EXECUTE') or die('Access Denied.')
 									$currentPagePath = $c->getCollectionPath();
 									$plist = new PageList();
 									$plist->filterByParentID($c->getCollectionID($oneLevelOnly = TRUE));
-									$plist->sortByDisplayOrder();
+                  $plist->sortByDisplayOrder();
+                  $subPages = $plist->get(0);
 									$pages = $plist->getResults();
 									?>
 
@@ -133,19 +135,36 @@ defined('C5_EXECUTE') or die('Access Denied.')
 									<div class="element active">
 										<a href="<?php echo $nh->getLinkToCollection($c)?>"><?php echo $ctitle?></a>
 									</div>
-								<?php
+								  <?php
  									foreach ($pages as $page) {
  								 		$title = $page->getCollectionName();
  								 		$is_active_page = $page->getCollectionID() == $c->getCollectionID(); ?>
 			 							<div class="element <?php echo $is_active_page ? ' active' : '';  ?>"><a href="<?php echo $nh->getLinkToCollection($page)?>"><?php echo $title?></a>
- 										</div>
+                    </div>
+                    <?php
+                    if (count($page->getChildren()) > 0) { 
+                    ?>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle<?= $page->isActive() ? " active" : ""; ?>" data-concrete-toggle="dropdown" target="<?=$controller->getPageItemNavTarget($page)?>" href="<?php echo $page->getUrl(); ?>">
+                          <?=$page->getName()?>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <?php foreach ($page->getChildren() as $dropdownChild) { ?>
+                              <li><a class="dropdown-item<?= $dropdownChild->isActive() ? " active" : ""; ?>" target="<?=$controller->getPageItemNavTarget($dropdownChild)?>" href="<?=$dropdownChild->getUrl()?>"><?=$dropdownChild->getName()?></a></li>
+                                  <?php } ?>
+                        </ul>
+                      </li>
+                      <?php } else { ?>
+                          <li class="nav-item"><a class="nav-link<?= $page->isActive() ? " active" : ""; ?>" target="<?=$thisTarget ?>" href="<?=$thisLink?>"><?=$page->getName()?></a></li>
+                            <?php } ?>
+                        <?php } ?> 
 									<?php } ?>
-									</div>
-									</div>
-	</div>
-</div>
+								 </ul>
+							</div>
+	          </div>
+      </div>
 
-   	</section>
+    </section>
    	<!--::banner section end::-->
 
   </header>

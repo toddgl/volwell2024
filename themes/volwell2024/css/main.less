@@ -74,10 +74,36 @@ hr {
 	font-style: normal;
 }
 
+// nav-bar Vertical
+
+.nav-bar{
+  position: fixed; 
+  top: 47px; 
+  left: 10px; 
+  z-index: 100;
+}
+
 // Navbar Underline
 
 .nav-item.active > .nav-link {
   border-bottom: 5px solid @primary-header-color;
+}
+
+/* Footer configuration */
+
+.ccm-block-page-list-header h5 {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.ccm-block-page-list-title a:visited, a:active {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.ccm-block-page-list-title a, a:hover {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 // Breakpoints
@@ -93,10 +119,7 @@ hr {
 
 /**************** banner part css start ****************/
 /**************** banner for home page  ****************/
-.home_banner_part{
-    min-height: 222px;
-		background-color: @primary-header-color;
-    position: relative;
+.home_banner_part {
 
 
     // Large devices (desktops greater than 1200px)
@@ -106,15 +129,17 @@ hr {
 
 
     .home_banner_image{
-      padding-right: 0px;
-      padding-left: 0px;
+      padding-right: 0;
+      padding-left: 0;
       height:inherit;
 
     }
 
-    .home_banner_image img{
-      width: 100%;
-      opacity:0.6;
+    .ccm-block-hero-image-image {
+      position: relative; 
+      /* Preserve aspect ratio */
+      min-width: 100%;
+      min-height: 100%;
     }
 
 		.home_banner_text {
@@ -143,12 +168,11 @@ hr {
     position: relative;
   }
 
-.navcontainer {
+.container {
     display: inline-flex;
     flex-wrap: wrap;
     min-height: 220px;
     width:100%;
-    background-color: @primary-header-color;
     //position: relative;
     left: 0;
     top: 0;
@@ -214,7 +238,7 @@ hr {
     opacity:0.6;
   }
 
-  .banner_image img, navcontainer {
+  .banner_image img, {
     position: absolute;
   }
 

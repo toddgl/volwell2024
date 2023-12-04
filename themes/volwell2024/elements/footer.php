@@ -12,14 +12,14 @@ $displayFirstSection = $footerSiteTitleBlocks > 0 || $footerSocialBlocks > 0 || 
 <footer id="footer-theme">
     <section>
         <div class="container-fluid"> 
-            <div class="row vw-footer-bar">
+            <div class="row vw-footer-bar text-bg-secondary">
                 <div class="col-lg-2 col-md-2 col-sm-2">
                     <?php
                     $a = new GlobalArea('Logo');
                     $a->display();
                     ?>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2">
+                <div class="col-lg-2 col-md-2 col-sm-2 link-light">
                     <?php
                     $a = new GlobalArea('Volunteer Navigation');
                     $a->display();
@@ -58,7 +58,7 @@ $displayFirstSection = $footerSiteTitleBlocks > 0 || $footerSocialBlocks > 0 || 
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <span><?php echo t('Built with <a href="http://www.concrete5.org" class="concrete5" rel="nofollow">concrete5</a> CMS.') ?></span>
+                <span><?php echo ('Built with <a href="http://www.concrete5.org" class="concrete5" rel="nofollow">concrete5</a> CMS.') ?></span>
             </div>
         </div>
     </div>

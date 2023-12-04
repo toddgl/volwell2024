@@ -23,70 +23,40 @@ defined('C5_EXECUTE') or die('Access Denied.')
 		$blocks = $as->getTotalBlocksInArea();
 		$displayThirdColumn = $blocks > 0 || $c->isEditMode();
 	?>
-	<header>
-		<div class="container">
-			<!--::menu section start::-->
-			<div class = "row">
-				<div class="col-lg-12">
-					<nav class="navbar navbar-expand-lg navbar-light">
-						<a class="navbar-brand" href="<?=URL::to('/')?>"><img src="<?=$view->getThemePath()?>/images/VolunteerWellington_pink_sm.png" alt="logo"> </a>
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse main-menu-item" id="navbarNav">
-              <?php View::getInstance()->requireAsset('javascript', 'jquery');
-                $nav = Loader::helper('navigation');
-                $navItems = $controller->getNavItems();
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+				<a class="navbar-brand" href="<?=URL::to('/')?>"><img src="<?=$view->getThemePath()?>/images/VolunteerWellington_red_sm.png" alt="logo"> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+         </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<?php
+		        $globalNav = new GlobalArea('Header Navigation');
+		        $globalNav->display();
+          ?>
+         </div>
+			</div>
+		</nav>
 
-                foreach ($navItems as $ni) {
-                  $classes = array();
-                  if ($ni->isCurrent) {
-                  //class for the page currently being viewed
-                    $classes[] = 'nav-selected';
-                  }
-                  if ($ni->inPath) {
-                    //class for parent items of the page currently being viewed
-                    $classes[] = 'nav-path-selected';
-                  }
-                  if ($ni->hasSubmenu) {
-                  //class for items that have dropdown sub-menus
-                    $classes[] = 'dropdown';
-                  }
-                  //Put all classes together into one space-separated string
-                  $ni->classes = implode(" ", $classes);
-                 }
+<!--::banner section start::-->
+   	<section class="home_banner_part">
+      <div class="container home_banner_image">
 
-                //*** Step 2 of 2: Output menu HTML ***/
+          <!-- Lead in page Image -->
+          <?php
+            $areaHdrImage = new Area('Image');
+            $areaHdrImage->display();
+          ?>
 
-                echo '<ul class="nav navbar-nav navbar-right">'; //opens the top-level menu
-
-                foreach ($navItems as $ni) {
-
-                  echo '<li class="' . $ni->classes . '">'; //opens a nav item
-
-                  if ($ni->isEnabled) {
-                    $ni->hasSubmenu;
-                  }
-
-                  if ($ni->hasSubmenu) {
-                     echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">' . $ni->name . '</a>';
-                  } else {
-                      echo '<a href="' . $ni->url . '" target="' . $ni->target . '" class="' . $ni->classes . '"><span class="navwrap"><span class="navimg"><i class="material-icons">' . $ni->attrClass . '</i></span><span class="navtit">' . $ni->name . '</span><span class="navtxt">' . $beschrijving . '</span></span></a>';
-                  }
-
-                  if ($ni->hasSubmenu) {
-                    echo '<ul class="dropdown-menu">'; //opens a dropdown sub-menu
-                  } else {
-                    echo '</li>'; //closes a nav item
-                     echo str_repeat('</ul></li>', $ni->subDepth); //closes dropdown sub-menu(s) and their top-level nav item(s)
-                  }
-                }
-
-                echo '</ul>'; //closes the top-level menu
-                ?>
-						</div>
-					</nav>
+          <div class="home_banner_text justify-content-center">
+            <!-- Lead in page Welcome msg -->
+            <?php
+                $areaHdrBanner = new Area('Banner');
+                $areaHdrBanner->display();
+            ?>
 				</div>
       </div>
-    </div>
+   	</section>
+   	<!--::banner section end::-->
   </header>

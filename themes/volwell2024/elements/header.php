@@ -23,21 +23,27 @@ defined('C5_EXECUTE') or die('Access Denied.')
 		$blocks = $as->getTotalBlocksInArea();
 		$displayThirdColumn = $blocks > 0 || $c->isEditMode();
 	?>
+    <?php $cp = new Permissions($c); if($cp->canViewToolbar()){?>
+        <style media="screen">
+            .navbar {top:48px;}
+            /* Other CSS Style */
+        </style>
+    <?php } ?>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-transparent">
       <div class="container-fluid">
-				<a class="navbar-brand" href="<?=URL::to('/')?>"><img src="<?=$view->getThemePath()?>/images/VolunteerWellington_red_sm.png" alt="logo"> </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-         </button>
+        <a class="navbar-brand mb-0 h1" href="<?=URL::to('/')?>"><img src="<?=$view->getThemePath()?>/images/VolunteerWellington_red_sm.png" alt="logo">Volunteer Wellington</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<?php
-		        $globalNav = new GlobalArea('Header Navigation');
-		        $globalNav->display();
-          ?>
-         </div>
-			</div>
-		</nav>
+            <?php
+                $globalNav = new GlobalArea('Header Navigation');
+                $globalNav->display();
+            ?>
+	    </div>
+      </div>
+	</nav>
 
 <!--::banner section start::-->
    	<section class="home_banner_part">

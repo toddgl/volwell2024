@@ -70,21 +70,40 @@ hr {
 
 /* Navbar section */
 .nav-link {
+  color: white;
   font-size: 1.75em;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .dropdown-menu {
+  background: transparent;
   font-size: 0.75em;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .nav ul li a {
-  color: black;
+  color: white;
+  font-weight: 600;
 }
 
 .nav ul li a:hover {
-  color: black;
+  color: white;
+  font-weight: 600;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 1.75em;
+  font-weight: 600;
+}
+
+.navbar {
+  position:  absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 // Navbar Underline
@@ -132,21 +151,23 @@ hr {
     }
 
 
-    .home_banner_image{
+    .home_banner_image {
       padding-right: 0;
       padding-left: 0;
       height:inherit;
-
     }
 
-    .ccm-block-hero-image-image {
-      position: relative; 
+    .ccm-image-block {
+      position:  absolute;
+      top: 0;
+      z-index: 1;
       /* Preserve aspect ratio */
-      min-width: 100%;
-      min-height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      max-width: none;
     }
 
-		.home_banner_text {
+	.home_banner_text {
 			color: white;
 			overflow: hidden;
       position: absolute;

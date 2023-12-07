@@ -26,43 +26,43 @@ defined('C5_EXECUTE') or die('Access Denied.')
     <?php $cp = new Permissions($c); if($cp->canViewToolbar()){?>
         <style media="screen">
             .navbar {top:48px;}
+            .home_banner_image {top:48px;}
             /* Other CSS Style */
         </style>
     <?php } ?>
   <header>
-    <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-transparent">
-      <div class="container-fluid">
-        <a class="navbar-brand mb-0 h1" href="<?=URL::to('/')?>"><img src="<?=$view->getThemePath()?>/images/VolunteerWellington_red_sm.png" alt="logo">Volunteer Wellington</a>
+      <div class="container">
+          <nav class="navbar navbar-expand-md navbar-dark bg-transparent">
+            <a class="navbar-brand mb-0 h1" href="<?=URL::to('/')?>"><img src="<?=$view->getThemePath()?>/images/VolunteerWellington_white_sm.png" alt="logo">Volunteer Wellington</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <?php
-                $globalNav = new GlobalArea('Header Navigation');
-                $globalNav->display();
-            ?>
-	    </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <?php
+                    $globalNav = new GlobalArea('Header Navigation');
+                    $globalNav->display();
+                ?>
+	        </div>
+          </nav>
       </div>
-	</nav>
+          <!--::banner section start::-->
+          <section class="home_banner_part">
+              <div class="container home_banner_image">
 
-<!--::banner section start::-->
-   	<section class="home_banner_part">
-      <div class="container home_banner_image">
+                  <!-- Lead in page Image -->
+                  <?php
+                  $areaHdrImage = new GlobalArea('Image');
+                  $areaHdrImage->display();
+                  ?>
 
-          <!-- Lead in page Image -->
-          <?php
-            $areaHdrImage = new Area('Image');
-            $areaHdrImage->display();
-          ?>
-
-          <div class="home_banner_text justify-content-center">
-            <!-- Lead in page Welcome msg -->
-            <?php
-                $areaHdrBanner = new Area('Banner');
-                $areaHdrBanner->display();
-            ?>
-				</div>
-      </div>
-   	</section>
-   	<!--::banner section end::-->
+                  <div class="home_banner_text justify-content-center">
+                      <!-- Lead in page Welcome msg -->
+                      <?php
+                      $areaHdrBanner = new Area('Banner');
+                      $areaHdrBanner->display();
+                      ?>
+                  </div>
+              </div>
+          </section>
+          <!--::banner section end::-->
   </header>

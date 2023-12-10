@@ -108,11 +108,63 @@ hr {
 
 // Navbar Underline
 
-.nav-item.active > .nav-link {
+#vw_navbar .nav-item.active > .nav-link {
   border-bottom: 5px solid @primary-header-color;
 }
 
+/* Imagenav configuration */
+
+.imagenav_block {
+  width: 100%;
+}
+
+.imagenav {
+  position:  relative;
+  left: 0;
+  right: 0;
+  margin-bottom: 0;
+  z-index: 3;
+}
+
+.imagenav-link {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: -1em;
+  position: relative;
+}
+
+.imagenav-link img {
+  height: 250px;
+  object-fit: cover;
+}
+
+.imagenav-text  {
+  position: absolute;
+  inset: 50%;
+  translate: -50% -50%;
+  width: 150px;
+  z-index: 1;
+  font-size: 1.25rem;
+  line-height: 20px;
+  font-weight: bolder;
+  color: white;
+}
+
 /* Footer configuration */
+
+.footer_block {
+  margin: 20px;
+}
+
+.vw-footer-bar {
+  position:  absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  margin-top: 0.7rem;
+}
 
 .ccm-block-page-list-header h5 {
   color: #ffffff;
@@ -149,17 +201,19 @@ hr {
     @media (min-width: 1199px) {
       min-height: 265px;
     }
-
+    .home_banner_part {
+    }
 
     .home_banner_image {
+      position:  absolute;
+      top: 0;
+      right: 0;
       padding-right: 0;
       padding-left: 0;
       height:inherit;
     }
 
     .ccm-image-block {
-      position:  absolute;
-      top: 0;
       z-index: 1;
       /* Preserve aspect ratio */
       background-repeat: no-repeat;

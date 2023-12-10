@@ -34,10 +34,10 @@ defined('C5_EXECUTE') or die('Access Denied.')
       <div class="container">
           <nav class="navbar navbar-expand-md navbar-dark bg-transparent">
             <a class="navbar-brand mb-0 h1" href="<?=URL::to('/')?>"><img src="<?=$view->getThemePath()?>/images/VolunteerWellington_white_sm.png" alt="logo">Volunteer Wellington</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#vw_navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="vw_navbar">
                 <?php
                     $globalNav = new GlobalArea('Header Navigation');
                     $globalNav->display();

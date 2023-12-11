@@ -6,9 +6,14 @@
 
 body {
   font-family: @body-type-font-family;
-  font-size: calc(12px + 0.35vw); /* Responsive base font size */
-  line-height: calc(12px + 1.05vw); /* Responsive Vertical Rhythm */
-	font-weight: @body-type-font-weight;
+  font-weight: @body-type-font-weight;
+  color: @body-type-color;
+  padding-top: 265px;
+}
+
+div p {
+  font-family: @body-type-font-family;
+  font-weight: @body-type-font-weight;
   color: @body-type-color;
 }
 
@@ -16,52 +21,6 @@ body {
   width: 100%; /* For small screens */
   max-width: 1140px; /* For large screens */
   margin: auto; /* Center the container in the viewport */
-}
-
-h1 {
-  //Content Title — Poppins Bold/48pt
-  font-size: 2.856em;
-  font-weight: 700;
-  line-height: calc(48px + 2.5w); /* Responsive Vertical Rhythm */
-}
-
-h2 {
-  font-size: 1.616em;
-  line-height: calc(18px + 1vw); /* Responsive Vertical Rhythm */
-}
-
-h3 {
-	// Banner Header Paragraph — Poppins Semibold/26pt
-  font-size: 1.471em;
-	font-weight: 600;
-  line-height: calc(18px + 0.7vw); /* Responsive Vertical Rhythm */
-}
-
-h4 {
-	// Content Sub Header — Poppins Semibold/14pt
-	font-size: 1.3em;
-	font-weight: 600;
-}
-
-h5 {
-	// Banner Subheader Paragraph — Poppins Medium/16pt
-	font-size: 1.243em;
-	font-weight: 500;
-}
-
-h6 {
-	// Content Sub Header Body — Poppins Light/16pt
-	font-size: 1.132em;
-	font-weight: 300;
-}
-
-h4, h5, h6 {
-  line-height: calc(18px + .2vw); /* Responsive Vertical Rhythm */
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: calc(12px + 1.05vw) 0; /* Responsive margins */
-  color: #000000; // black
 }
 
 hr {
@@ -204,14 +163,16 @@ hr {
     .home_banner_part {
     }
 
-    .home_banner_image {
-      position:  absolute;
-      top: 0;
-      right: 0;
-      padding-right: 0;
-      padding-left: 0;
-      height:inherit;
-    }
+  .home_banner_image img {
+    position:  absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    height:265px;
+  }
 
     .ccm-image-block {
       z-index: 1;
@@ -250,7 +211,7 @@ hr {
 .container {
     display: inline-flex;
     flex-wrap: wrap;
-    min-height: 220px;
+    min-height: max-content;
     width:100%;
     //position: relative;
     left: 0;

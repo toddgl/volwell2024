@@ -47,7 +47,7 @@ defined('C5_EXECUTE') or die('Access Denied.')
       </div>
           <!--::banner section start::-->
           <section class="home_banner_part">
-              <div class="container home_banner_image">
+              <div class="home_banner_image">
 
                   <!-- Lead in page Image -->
                   <?php

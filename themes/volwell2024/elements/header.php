@@ -45,8 +45,9 @@ defined('C5_EXECUTE') or die('Access Denied.')
 	        </div>
           </nav>
       </div>
+  </header>
           <!--::banner section start::-->
-          <section class="home_banner_part">
+          <section>
               <div class="home_banner_image">
 
                   <!-- Lead in page Image -->
@@ -55,14 +56,13 @@ defined('C5_EXECUTE') or die('Access Denied.')
                   $areaHdrImage->display();
                   ?>
 
-                  <div class="home_banner_text justify-content-center">
-                      <!-- Lead in page Welcome msg -->
-                      <?php
-                      $areaHdrBanner = new Area('Banner');
-                      $areaHdrBanner->display();
-                      ?>
-                  </div>
+              </div>
+              <div class="home_banner_text justify-content-center">
+                  <!-- Lead in page Welcome msg -->
+                  <?php
+                  $areaHdrBanner = new Area('Banner');
+                  $areaHdrBanner->display();
+                  ?>
               </div>
           </section>
           <!--::banner section end::-->
-  </header>

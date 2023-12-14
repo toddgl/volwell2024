@@ -73,7 +73,7 @@ $displayFirstSection = $footerSiteTitleBlocks > 0 || $footerSocialBlocks > 0 || 
                     $aContact->display();
                     ?>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2">
+                <div class="footer_block col-lg-2 col-md-2 col-sm-2">
                     <?php
                     $aSocial = new GlobalArea('Social Media Contact');
                     $aSocial->display();

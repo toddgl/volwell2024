@@ -10,7 +10,7 @@ defined('C5_EXECUTE') or die(_("Access Denied."));
 
 class PageTheme extends Theme implements ThemeProviderInterface
 {
-   protected $pThemeGridFrameworkHandle = 'bootstrap5';
+   protected $pThemeGridFrameworkHandle = 'bootstrap3';
 
    public function getThemeName()
    {
@@ -19,7 +19,7 @@ class PageTheme extends Theme implements ThemeProviderInterface
 
    public function getThemeDescription()
    {
-     return t('A Volunteer Wellington Theme using Bootstrap5');
+     return t('A Volunteer Wellington Theme using Bootstrap4');
    }
 
    public function getThemeAreaLayoutPresets()

@@ -115,7 +115,7 @@ foreach ($navItems as $ni) {
     $dropdownClass = '';
     $dropdownCarrot = '';
     if($ni->hasSubmenu) {
-        $dataToggle = ' data-bs-toggle="dropdown"';
+        $dataToggle = ' data-toggle="dropdown"';
         $dropdownClass = ' nav-link dropdown-toggle';
         $dropdownCarrot = ' <span class="caret"></span>';
     } else {

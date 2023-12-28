@@ -4,11 +4,71 @@
 
 /* Modular Scale located here: https://www.modularscale.com/?1,1140,12&em&1.3 */
 
+.header-banner {
+  position:  absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height:365px;
+  min-height:365px;
+  background-size:cover;
+  background-image:url('https://www.volwell.nz/websitetest/index.php/download_file/27/0');
+  z-index: 1;
+}
+
+.banner_text {
+  color: white;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  
+  p {
+      color: white;
+      font-size: 1.15rem;
+      font-weight: 700;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+  }
+}
+
+.main-container {
+    column-count: 1;
+    max-width: 1600px;
+}
+
+.first-conatiner {
+    padding-top: 150px!important;
+}
+
+@media screen and (min-width: 601px) {
+    .main-container {
+        margin-left: 80px;
+    }
+}
+
 body {
   font-family: @body-type-font-family;
   font-weight: @body-type-font-weight;
   color: @body-type-color;
   padding-top: 265px;
+}
+
+h4 {
+  color: @form-header-color;
+  font-weight: @header-type-font-weight;
+}
+h3 {
+  color: @form-header-color;
+  font-weight: @header-type-font-weight;
+}
+h2 {
+  color: @form-header-color;
+  font-weight: @header-type-font-weight;
 }
 
 div p {
@@ -19,7 +79,7 @@ div p {
 
 .main-ctnr {
   width: 100%; /* For small screens */
-  max-width: 1140px; /* For large screens */
+  // max-width: 1140px; /* For large screens */
   margin: auto; /* Center the container in the viewport */
 }
 
@@ -30,8 +90,23 @@ hr {
 /* Navbar section */
 .nav-link {
   color: white;
-  font-size: 1.75em;
+  line-height: 1;
   font-weight: 600;
+}
+
+@media screen and (min-width: 601px) {
+  .nav-link {
+    font-size: 1.75rem;
+  }
+}
+
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+
+@media screen and (max-width: 600px) {
+  .nav-link {
+    font-size: 1.00rem;
+  }
 }
 
 .dropdown-menu {
@@ -65,6 +140,10 @@ hr {
   padding-right: 10px;
 }
 
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
 // Navbar Underline
 
 #vw_navbar .nav-item.active > .nav-link {
@@ -73,7 +152,7 @@ hr {
 
 /* Imagenav configuration */
 
-.imagenav_block {
+.imagenav-block {
   width: 100%;
 }
 
@@ -86,28 +165,42 @@ hr {
 }
 
 .imagenav-link {
+  margin: -1em;
+  
+}
+.imagenav-link a {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  margin: -1em;
   position: relative;
 }
 
 .imagenav-link img {
-  height: 250px;
-  object-fit: cover;
+  height: 270px;
+  object-fit: contain;
 }
 
 .imagenav-text  {
   position: absolute;
   inset: 50%;
-  translate: -50% -50%;
+  translate: 25% -50%;
   width: 150px;
   z-index: 1;
   font-size: 1.25rem;
   line-height: 20px;
-  font-weight: bolder;
+  font-weight: 700;
   color: white;
+}
+.main-link h4 {
+  color: white;
+  transition: 0.2s;
+
+  &:hover,
+  &:focus {
+    color: #ea8b00;
+    text-decoration: none;
+    outline: none;
+  }
 }
 
 /* Footer configuration */
@@ -115,6 +208,17 @@ hr {
 .footer_block {
   margin-top: 20px;
   margin-bottom: 20px;
+  color: white;
+}
+
+.footer_block h5 {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.footer_block a {
+    color: white;
+    
 }
 
 .vw-footer-bar {
@@ -123,30 +227,10 @@ hr {
   right: 0;
   width: 100%;
   z-index: 2;
-  margin-top: 0.7rem;
-}
-
-.ccm-block-page-list-header h5 {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-.ccm-block-page-list-title a:visited, a:active {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.ccm-block-page-list-title a, a:hover {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.ccm-block-social-links ul.list-inline li {
-  display: list-item !important;
-}
-
-.ccm-block-social-links ul.list-inline li .fab {
-  font-size: x-large;
+  background-color: @primary-footer-color;
+  margin-top: 1.0rem;
+  margin-left: 0!important;
+  margin-right: 0!important;
 }
 
 // Breakpoints
@@ -161,10 +245,10 @@ hr {
 @desktop-xl:  ~"only screen and (min-width: 1129px)";
 
 /**************** banner part css start ****************/
-/**************** banner for home page  ****************/
+/**************** global banner for all page  ****************/
 .home_banner_image {
   width: 100%;
-  height:265px;
+  height:140px;
 }
 
 .home_banner_image img {
@@ -174,7 +258,7 @@ hr {
   right: 0;
   padding-right: 0;
   padding-left: 0;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .ccm-image-block {
@@ -185,19 +269,7 @@ hr {
   max-width: none;
 }
 
-.home_banner_text {
-        color: white;
-        overflow: hidden;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
 
-  h1, h2, h3, h4, h5, h6 {
-    color: white;
-  }
-    }
 
 .role-link {
   z-index: 4;
@@ -217,140 +289,32 @@ hr {
   .flex-grow {
     flex: 1 0 auto;
   }
+  
+/* Home page card orientation */
 
 
-  /**************** banner for other pages  ****************/
-
-  .wrap {  // similar to as banner_part
-    position: relative;
-  }
-
-.container {
-    display: inline-flex;
-    flex-wrap: wrap;
-    min-height: max-content;
-    width:100%;
-    //position: relative;
-    left: 0;
-    top: 0;
-    //z-index: 1;
-    justify-content: center;
-
-
+@media screen and (max-width: 600px) {
+.card-horizontal {
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    }
+.card-columns {
+        column-count: 1;
+    }
 }
 
-.element {
-    max-width: 100%;
-    margin: 3%;
-    flex-direction: column;
-  }
-
-.element a {
-    font-size: 1.132em;
-    font-weight: 600;
-    color: white;
-    margin: 15px 15px 15px;
-    padding: 5px 15px 5px;
-    border-style: solid;
-    border-radius: 5px;
-    border-color: white;
-    border-width: medium;
-    flex: 1;
-
-
-   @media @mobile {
-      border-width:thin;
+@media screen and (min-width: 601px) {
+.card-horizontal {
+    min-width: 400px;
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
+ }
+ .card-columns {
+        column-count: 2;
     }
-  }
-
-  .element.active > a {
-    color: @primary-header-color;
-    background-color: white
-  }
-
-  .banner_text {
-    color: white;
-    text-align: center;
-    z-index: 3;
-    width:inherit;
-
-    h1, h2, h3, h4, h5, h6 {
-      color: white;
-    }
-  }
-
-  .banner_image {
-    z-index: 2;
-    padding-left: 0;
-    padding-right: 0;
-    height: inherit;
-  }
-
-  .banner_image img{
-    width: 100%;
-    opacity:0.6;
-  }
-
-  .banner_image img {
-    position: absolute;
-  }
-
-
-
-  // Override to get the pagelist to display horizonatally
-  .banner_nav {
-    max-width: 100%;
-    text-decoration: none;
-    display:flex;
-    //justify-content: space-between;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    // line-height: 3.2em;
-  }
-
-  .banner_nav_list_wrapper{
-    min-height: auto;
-    line-height: 3.2em;
-  }
-
-  .banner_nav_list{
-      margin: auto auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      min-height:inherit;
-      line-height: 3.2em;
-  }
-
-  .banner_nav a {
-    font-size: 1.132em;
-  	font-weight: 600;
-    color: white;
-    margin: 15px 15px 15px;
-    padding: 5px 15px 5px;
-    border-style: solid;
-    border-radius: 5px;
-    border-color: white;
-    border-width: medium;
-
-    @media @mobile {
-      border-width:thin;
-    }
-  }
-
-
-
-  .banner_nav_list_item.active > a {
-    color: @primary-header-color;
-    background-color: white
-  }
-
-  .nav_separator>hr {
-    margin-top: 5px;
-  }
-
+}
 
   // Multicolumn Content using CCS3 columns
   .two-cols

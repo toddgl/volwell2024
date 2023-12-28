@@ -1,47 +1,41 @@
 <?php defined('C5_EXECUTE') or die("Access Denied.");
-
-$footerSiteTitle = new GlobalArea('Footer Site Title');
-$footerSiteTitleBlocks = $footerSiteTitle->getTotalBlocksInArea();
-
-$footerSocial = new GlobalArea('Footer Social');
-$footerSocialBlocks = $footerSocial->getTotalBlocksInArea();
-
-$displayFirstSection = $footerSiteTitleBlocks > 0 || $footerSocialBlocks > 0 || $c->isEditMode();
 ?>
 
 <footer id="footer-theme">
     <section>
-        <div class="imagenav_block container-fluid text-center">
-            <div class="imagenav row">
-                <div class="col-lg-3 imagenav-link">
-                    <?php
-                        $i1 = new GlobalArea('Imagenav1');
-                        $i1->display();
-                    ?>
+        <div class="container-fluid">
+              <div class="row">
+                  <div class="card-group">
+                    <div class="col-lg-3">
+                        <?php
+                            $i1 = new GlobalArea('Imagenav1');
+                            $i1->display();
+                        ?>
+                    </div>
+                    <div class="col-lg-3">
+                        <?php
+                            $i2 = new GlobalArea('Imagenav2');
+                            $i2->display();
+                        ?>
+                    </div>
+                    <div class="col-lg-3">
+                        <?php
+                            $i3 = new GlobalArea('Imagenav3');
+                            $i3->display();
+                        ?>
+                    </div>
+                    <div class="col-lg-3">
+                        <?php
+                            $i4 = new GlobalArea('Imagenav4');
+                            $i4->display();
+                        ?>
+                    </div>
                 </div>
-                <div class="col-lg-3 imagenav-link">
-                    <?php
-                        $i2 = new GlobalArea('Imagenav2');
-                        $i2->display();
-                    ?>
-                </div>
-                <div class="col-lg-3 imagenav-link">
-                    <?php
-                        $i3 = new GlobalArea('Imagenav3');
-                        $i3->display();
-                    ?>
-                </div>
-                <div class="col-lg-3 imagenav-link">
-                    <?php
-                        $i4 = new GlobalArea('Imagenav4');
-                        $i4->display();
-                    ?>
-                </div>
-            </div>
+             </div>
         </div>
     </section>
     <section>
-        <div class="container-fluid">
+        <div class=" container-fluid p-0">
             <div class="row vw-footer-bar text-bg-secondary">
                 <div class="footer_block col-lg-2 col-md-2 col-sm-2">
                     <?php
@@ -84,19 +78,8 @@ $displayFirstSection = $footerSiteTitleBlocks > 0 || $footerSocialBlocks > 0 || 
     </section>
 </footer>
 
-<footer id="concrete5-brand">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <span><?php echo ('Built with <a href="http://www.concrete5.org" class="concrete5" rel="nofollow">concrete5</a> CMS.') ?></span>
-            </div>
-        </div>
-    </div>
-</footer>
-
-</div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <?php View::element('footer_required'); ?>
 </body>
 </html>

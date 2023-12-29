@@ -1,18 +1,17 @@
 @import "presets/defaults.less";
 @import ~"@{preset-fonts-file}";
 
-
 /* Modular Scale located here: https://www.modularscale.com/?1,1140,12&em&1.3 */
 
 .header-banner {
-  position:  absolute;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height:365px;
-  min-height:365px;
-  background-size:cover;
-  background-image:url('https://www.volwell.nz/websitetest/index.php/download_file/27/0');
+  height: 365px;
+  min-height: 365px;
+  background-size: cover;
+  background-image: url("https://www.volwell.nz/websitetest/index.php/download_file/27/0");
   z-index: 1;
 }
 
@@ -24,31 +23,36 @@
   left: 75%;
   transform: translate(-50%, -50%);
   text-align: center;
-  
+
   p {
-      color: white;
-      font-size: 1.15rem;
-      font-weight: 700;
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 700;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: white;
   }
 }
 
 .main-container {
-    column-count: 1;
-    max-width: 1600px;
+  column-count: 1;
+  max-width: 1600px;
 }
 
-.first-conatiner {
-    padding-top: 150px!important;
+.first-container {
+  padding-top: 120px !important;
 }
 
 @media screen and (min-width: 601px) {
-    .main-container {
-        margin-left: 80px;
-    }
+  .main-container {
+    margin-left: 80px;
+  }
 }
 
 body {
@@ -84,7 +88,7 @@ div p {
 }
 
 hr {
-    border-top: 3px solid @primary-header-color;
+  border-top: 3px solid @primary-header-color;
 }
 
 /* Navbar section */
@@ -100,12 +104,11 @@ hr {
   }
 }
 
-
 /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
 
 @media screen and (max-width: 600px) {
   .nav-link {
-    font-size: 1.00rem;
+    font-size: 1rem;
   }
 }
 
@@ -132,7 +135,7 @@ hr {
 }
 
 .navbar {
-  position:  absolute;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 2;
@@ -141,7 +144,7 @@ hr {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-    color: white;
+  color: white;
 }
 
 // Navbar Underline
@@ -157,7 +160,7 @@ hr {
 }
 
 .imagenav {
-  position:  relative;
+  position: relative;
   left: 0;
   right: 0;
   margin-bottom: 0;
@@ -166,7 +169,6 @@ hr {
 
 .imagenav-link {
   margin: -1em;
-  
 }
 .imagenav-link a {
   background-size: cover;
@@ -180,7 +182,7 @@ hr {
   object-fit: contain;
 }
 
-.imagenav-text  {
+.imagenav-text {
   position: absolute;
   inset: 50%;
   translate: 25% -50%;
@@ -217,42 +219,42 @@ hr {
 }
 
 .footer_block a {
-    color: white;
-    
+  color: white;
 }
 
 .vw-footer-bar {
-  position:  absolute;
+  position: absolute;
   left: 0;
   right: 0;
   width: 100%;
   z-index: 2;
   background-color: @primary-footer-color;
-  margin-top: 1.0rem;
-  margin-left: 0!important;
-  margin-right: 0!important;
+  margin-top: 1rem;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 // Breakpoints
 // --------------------- Source: http://blog.scur.pl/2012/06/variable-media-queries-less-css/
-@highdensity: ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
-              ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
-              ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
-              ~"only screen and (min-device-pixel-ratio: 1.5)";
-@mobile:      ~"only screen and (max-width: 768px)";
-@tablet:      ~"only screen and (min-width: 992px) and (max-width: 1049px)";
-@desktop:     ~"only screen and (min-width: 1050px) and (max-width: 1128px)";
-@desktop-xl:  ~"only screen and (min-width: 1129px)";
+@highdensity:
+  ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+  ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
+  ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
+  ~"only screen and (min-device-pixel-ratio: 1.5)";
+@mobile: ~"only screen and (max-width: 768px)";
+@tablet: ~"only screen and (min-width: 992px) and (max-width: 1049px)";
+@desktop: ~"only screen and (min-width: 1050px) and (max-width: 1128px)";
+@desktop-xl: ~"only screen and (min-width: 1129px)";
 
 /**************** banner part css start ****************/
 /**************** global banner for all page  ****************/
 .home_banner_image {
   width: 100%;
-  height:140px;
+  height: 140px;
 }
 
 .home_banner_image img {
-  position:  absolute;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -269,8 +271,6 @@ hr {
   max-width: none;
 }
 
-
-
 .role-link {
   z-index: 4;
   color: white;
@@ -282,71 +282,71 @@ hr {
   transform: translate(-50%, -50%);
   text-align: center;
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: white;
   }
 }
-  .flex-grow {
-    flex: 1 0 auto;
-  }
-  
+.flex-grow {
+  flex: 1 0 auto;
+}
+
 /* Home page card orientation */
 
-
 @media screen and (max-width: 600px) {
-.card-horizontal {
+  .card-horizontal {
     min-width: 400px;
     display: flex;
     flex-direction: column;
-    }
-.card-columns {
-        column-count: 1;
-    }
+  }
+  .card-columns {
+    column-count: 1;
+  }
 }
 
 @media screen and (min-width: 601px) {
-.card-horizontal {
+  .card-horizontal {
     min-width: 400px;
     display: flex;
     flex-direction: row;
     flex: 1 1 auto;
- }
- .card-columns {
-        column-count: 2;
-    }
+  }
+  .card-columns {
+    column-count: 2;
+  }
 }
 
-  // Multicolumn Content using CCS3 columns
-  .two-cols
-  {
-    -webkit-columns: 2 200px;
-    -moz-columns: 2 200px;
-    columns: 2 200px;
+// Multicolumn Content using CCS3 columns
+.two-cols {
+  -webkit-columns: 2 200px;
+  -moz-columns: 2 200px;
+  columns: 2 200px;
 
-    -webkit-column-gap: 4em;
-    -moz-column-gap: 4em;
-    column-gap: 4em;
-  }
+  -webkit-column-gap: 4em;
+  -moz-column-gap: 4em;
+  column-gap: 4em;
+}
 
-  .two-cols > h1
-  {
-    -webkit-column-span: all;
-    -moz-column-span: all;
-    column-span: all;
-  }
-  .two-cols > h1::before
-  {
-    content: '';
-    position:absolute;
-    display: block;
-    height: 4px;
-    width: 120px;
-    background: @primary-header-color;
-  }
+.two-cols > h1 {
+  -webkit-column-span: all;
+  -moz-column-span: all;
+  column-span: all;
+}
+.two-cols > h1::before {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 4px;
+  width: 120px;
+  background: @primary-header-color;
+}
 
-  .two-cols > h4
-  {
-    -webkit-column-span: all;
-    -moz-column-span: all;
-    column-span: all;
-  }
+.two-cols > h4 {
+  -webkit-column-span: all;
+  -moz-column-span: all;
+  column-span: all;
+}

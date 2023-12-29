@@ -4,7 +4,7 @@ defined('C5_EXECUTE') or die('Access Denied.')
 <?php
 $view->inc('elements/header.php');
 ?>
-<div class="main-container text-center first-conatiner">
+<div class="main-container text-center first-container">
 			<?php
 				$areaMain1 = new Area('Main1');
 				$areaMain1->display($c);
